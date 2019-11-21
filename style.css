@@ -1,0 +1,223 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+}
+
+html,body {
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+}
+
+.row{
+  display: flex;
+}
+
+.header{
+  padding-top: 3rem;
+}
+
+.wrapper{
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.first-column{
+  background-image: url("images/bg-pattern-desktop.svg");
+  background-size: cover;
+  flex: 1 1 50%;
+}
+
+.first-column__content{
+  margin-top: 7rem;
+}
+
+.bold-text{
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  width: 50%;
+  letter-spacing: .5rem;
+  line-height: .9;
+}
+
+.bold-text--coloured{
+  color: hsl(0, 36%, 70%);
+  width: 100%;
+  /* display: block; */
+}
+
+.small-text--coloured{
+  width: 85%;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: hsl(0, 36%, 70%);
+  font-size: 1.1rem;
+}
+
+/* Second column*/
+.second-column img{
+  height: 100%;
+  flex: 1 1 50%;
+  width: 100%;
+}
+
+/* Form section */
+.email-form{
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  line-height: 0;
+  border-radius: 35px;
+  border: .5px solid  hsla(0, 6%, 24%,.4);
+}
+
+/* Error text section*/
+.error-text{
+  display: none;
+}
+
+.email-form.error + .error-text {
+  color:  hsl(0, 93%, 68%);
+  margin: 10px 0 0 20px;
+  display: block;
+  font-style: italic;
+}
+
+.email-form.error{
+  background: url('images/icon-error.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 70% 50%;
+  border: 1.2px solid hsl(0, 93%, 68%);
+}
+/* End of Error text section*/
+
+.form-control{
+  width: 100%;
+  height: 55px;
+  border-radius: 50px;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  padding: 0 3rem 0 2rem;
+  font-size: 1.2rem;
+  background: transparent;
+}
+
+.text-field::placeholder{
+  color: hsl(0, 36%, 70%);
+  font-family: inherit;
+  opacity: 0.7;
+}
+
+
+/* Btn submit */
+.btn{
+  position: absolute;
+  right: 0;
+  width: 120px;
+  text-align: center;
+  padding: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 5px 15px 7px #ddd;
+  background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%)); 
+  transition: 3s ease-in;
+  z-index: 1;
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, hsl(0, 80%, 90%), hsl(0, 74%, 85%));
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .5s linear;
+}
+
+.btn:hover::before{
+  opacity: 1;
+}
+
+.btn img{
+  transition: transform .7s;
+}
+
+.btn:hover img{
+  transform: translateX(130%);
+}
+
+/* footer */
+footer{
+  width: 100%;
+  padding: 3rem;
+  background: #111;
+}
+
+footer .attribution{
+  color: #eee;
+  font-size: 1.5rem;
+}
+
+footer .attribution a{
+  color: #ccc;
+}
+
+/*media queries*/
+@media (max-width: 955px){
+  .row{
+    flex-direction: column;
+  }
+
+  .wrapper{
+    max-width: 80%;
+  }
+  
+  .first-column__content{
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  .first-column__content, .bold-text, .small-text--coloured{
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media(max-width: 377px){
+  .first-column{
+    order: 2;
+  }
+
+  .header{
+    padding-top: 2.5rem;
+    position: absolute;
+    left: 30px;
+    top: 0;
+  }
+
+  .second-column{
+    margin-top: 6.5rem;
+  }
+
+  .btn{
+    width: 30%;
+  }
+  
+  .small-text--coloured{
+    font-size: 16px;
+  }
+
+  .wrapper{
+    max-width: 90%;
+  }
+
+  .email-form.error{
+    background-position: 60% 50%;
+  }
+}
